@@ -7,8 +7,8 @@
 /FreeRTOS_TAD_logs/
 
 # Excluye carpeta temporal Debug/Release
-/carpeta_pj_final/Debug/
-/carpeta_pj_final/Release/
+/MCUX_FRDM_KL02Z_IoT_RTU_demo/Debug/
+/MCUX_FRDM_KL02Z_IoT_RTU_demo/Release/
 
 # Excluye carpeta html de doxygen
-/carpeta_pj_final/doxygen/html/
+/MCUX_FRDM_KL02Z_IoT_RTU_demo/doxygen/html/
