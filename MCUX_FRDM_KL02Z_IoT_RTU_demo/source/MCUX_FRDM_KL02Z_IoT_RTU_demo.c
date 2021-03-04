@@ -187,9 +187,9 @@ int main(void) {
     	if(adc_base_de_tiempo>10){	// >10 equivale aproximadamente a 2s
     		adc_base_de_tiempo=0;	//reinicia contador de tiempo
     		adcTomarCaptura(PTB8_ADC0_SE11_CH14, &adc_dato);	//inicia lectura por ADC y guarda en variable adc_dato
-    		printf("ADC ->");
-    		printf("PTB8:0x%X ",adc_dato);	//imprime resultado ADC
-    		printf("\r\n");	//Imprime cambio de linea
+    		//printf("ADC ->");
+    		//printf("PTB8:0x%X ",adc_dato);	//imprime resultado ADC
+    		//printf("\r\n");	//Imprime cambio de linea
     	}
 #endif
 
@@ -199,11 +199,11 @@ int main(void) {
         	if(mma8451Q_base_de_tiempo>10){	//	>10 equivale aproximadamente a 2s
         		mma8451Q_base_de_tiempo=0;	//reinicia contador de tiempo
         		if(mma8451QReadAccel(&mma8451Q_datos)==kStatus_Success){	//toma lectura de ejes X,Y,Z
-        			printf("MMA8451Q ->");
-        			printf("Accel_X:0x%X ",mma8451Q_datos.x_value);	//imprime aceleración X
-        			printf("Accel_Y:0x%X ",mma8451Q_datos.y_value);	//imprime aceleración Y
-        			printf("Accel_Z:0x%X ",mma8451Q_datos.z_value);	//imprime aceleración Z
-        			printf("\r\n");	//Imprime cambio de linea
+        			//printf("MMA8451Q ->");
+        			//printf("Accel_X:0x%X ",mma8451Q_datos.x_value);	//imprime aceleración X
+        			//printf("Accel_Y:0x%X ",mma8451Q_datos.y_value);	//imprime aceleración Y
+        			//printf("Accel_Z:0x%X ",mma8451Q_datos.z_value);	//imprime aceleración Z
+        			//printf("\r\n");	//Imprime cambio de linea
         		}
         	}
     	}
@@ -231,12 +231,13 @@ int main(void) {
 			if(sht3x_base_de_tiempo>10){//	>10 equivale aproximadamente a 2s
 				sht3x_base_de_tiempo=0; //reinicia contador de tiempo
 	    		if (sht3xReadData(&sht3x_datos) == kStatus_Success) {//toma lectura humedad, temperatura
-	    			printf("SHT3X ->");
-	    			printf("temperatura:    0x%X   %.2f 	",sht3x_datos.temperatura,(float)(-45.0+175.0*(sht3x_datos.temperatura/65535.0)));	//imprime temperatura
-	    			printf("CRC8_t:         0x%X   			",sht3x_datos.crc_temperatura);	//imprime CRC8 de temperatura
-        			printf("humedad:        0x%X   %.2f     ",sht3x_datos.humedad,(float)(100.0*(sht3x_datos.humedad/65535.0)));	//imprime humedad
-        			printf("CRC8_h:         0x%X 			",sht3x_datos.crc_humedad);	//imprime CRC8 de temperatura
+	    			printf("DATOS SENSOR SHT3X ->");
+	    			printf("temperatura:       %.2f (C) \r\n",(float)(-45.0+175.0*(sht3x_datos.temperatura/65535.0)));	//imprime temperatura
+	    	    //	printf("CRC8_t:         0x%X   			",sht3x_datos.crc_temperatura);	//imprime CRC8 de temperatura
+	    			printf("humedad:           %.2f (%%)   ",(float)(100.0*(sht3x_datos.humedad/65535.0)));	//imprime humedad
+        		//	printf("CRC8_h:         0x%X 			",sht3x_datos.crc_humedad);	//imprime CRC8 de temperatura
         			printf("\r\n");	//Imprime cambio de linea
+
 	    		}
 			}
     	}
